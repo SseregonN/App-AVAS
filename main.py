@@ -6,9 +6,6 @@ from pygame import mixer
 from pydub import AudioSegment
 import tempfile
 import os
-
-
-    
 class app:
     def __init__(self):
         
@@ -19,7 +16,7 @@ class app:
 
         self.fenetre = tkinter.Tk()
         self.fenetre.geometry('500x500')
-        self.fenetre.title('SseregonN - Tkinter tutoriel')
+        self.fenetre.title('Avas Sound Modifier Simulator')
         self.fenetre.resizable(height=False, width=False)
         self.fenetre.configure(background=self.couleur_1)
         self.fenetre.grid_rowconfigure(0, weight=1)
@@ -58,13 +55,12 @@ class app:
 
         fichier = tkinter.Menu(mon_menu, tearoff=0)
         fichier.add_command(label="Ouvrir...", command=lambda: self.choix_fichier())
-        fichier.add_command(label="Exporter", command=lambda: self.export(self.curseur.get()))
+        fichier.add_command(label="Exporter...", command=lambda: self.export(self.curseur.get()))
 
         help = tkinter.Menu(mon_menu, tearoff=0)
         help.add_command(label="Comment régler la vitesse ?")
 
         mon_menu.add_cascade(label="Fichier", menu=fichier)
-        mon_menu.add_cascade(label="Help", menu=help)
 
         self.fenetre.config(menu=mon_menu)
 
@@ -138,14 +134,14 @@ class app:
         self.curseur=tkinter.Scale(
             self.fenetre,
             bd=0,
-            bg=self.couleur_1,
-            label="Vitesse du véhicule", 
+            bg=self.couleur_2,
+            label="Speed of the vehicle", 
             cursor="hand1",
             activebackground=self.couleur_3,
             highlightthickness=2,
             highlightbackground=self.couleur_1,
             highlightcolor="WHITE",
-            fg="white",
+            fg="black",
             orient="horizontal", 
             from_=0, to=30, length=500, 
             font=("Arial", 16, "bold"), 
